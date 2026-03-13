@@ -1,0 +1,200 @@
+Practice Problems
+
+1. Linear Search
+
+Input:
+
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, key, found = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    for(i = 0; i < n; i++) {
+        if(arr[i] == key) {
+            printf("Element found at position %d\n", i + 1);
+            found = 1;
+            break;
+        }
+    }
+
+    if(found == 0) {
+        printf("Element not found in the array\n");
+    }
+
+    return 0;
+}
+
+Output:
+
+Enter number of elements: 3
+Enter 3 elements:
+2
+3
+4
+Enter element to search: 4
+Element found at position 3
+
+
+2. Binary Search
+
+Input:
+
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, key;
+    int low, high, mid, found = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d sorted elements:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    low = 0;
+    high = n - 1;
+
+    while(low <= high) {
+        mid = (low + high) / 2;
+
+        if(arr[mid] == key) {
+            printf("Element found at position %d\n", mid + 1);
+            found = 1;
+            break;
+        }
+        else if(arr[mid] < key) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+
+    if(found == 0) {
+        printf("Element not found in the array\n");
+    }
+
+    return 0;
+}
+
+Output:
+
+Enter number of elements: 3
+Enter 3 sorted elements:
+2
+4
+8
+Enter element to search: 4
+
+
+3. Smallest Number
+
+Input:
+
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, key;
+    int low, high, mid, found = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d sorted elements:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    low = 0;
+    high = n - 1;
+
+    while(low <= high) {
+        mid = (low + high) / 2;
+
+        if(arr[mid] == key) {
+            printf("Element found at position %d\n", mid + 1);
+            found = 1;
+            break;
+        }
+        else if(arr[mid] < key) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+
+    if(found == 0) {
+        printf("Element not found in the array\n");
+    }
+
+    return 0;
+}
+
+Output:
+
+Enter the size of the array: 3
+Enter 3 elements:
+2
+3
+5
+Smallest number is 2 at position 1
+
+
+4. Duplicates
+
+Input:
+
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, j;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Duplicate elements are:\n");
+
+    for(i = 0; i < n; i++) {
+        for(j = i + 1; j < n; j++) {
+            if(arr[i] == arr[j]) {
+                printf("%d\n", arr[i]);
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
+
+Output:
+
+Enter number of elements: 3
+Enter 3 elements:
+2 2 5
+Duplicate elements are:
+2
